@@ -11,13 +11,12 @@ char msg[6];
 
 bool sc1 = true;
 bool sc433 = false;
-bool sc315 = false;
 
 int numbers[7];
 
 int stepWrite=0;
 
-unsigned long sspb=0;
+unsigned int sspb=0;
 
 String code,code1="",code2="",code3="",code4="";
 Adafruit_SSD1306 display(-1);
@@ -82,13 +81,13 @@ if(sc1)
       if(star == 0)
       {
         sc433 = true;
-        sc315 = false;
+        //sc315 = false;
         sc1   = false;
         screen433();
       }
       if(star == 1)
       {
-        sc315 = true;
+        //sc315 = true;
         sc433 = false;
         sc1   = false;
       }
@@ -284,7 +283,7 @@ if(sc433)
        display.setTextSize(1);
        display.setTextColor(WHITE);
        display.setCursor(0,0);
-       display.println("Jamming On 433MHz");
+       display.println("Jamming");
        display.display();
        while(digitalRead(5) == HIGH)
        {
@@ -299,10 +298,6 @@ if(sc433)
 }
 void writingDs(){
       display.clearDisplay();
-      display.setTextSize(1);
-      display.setTextColor(WHITE);
-      display.setCursor(0,0);
-      display.println("Writing for 433MHz");
       for(int i=0;i<7;i++)
       {
         display.setCursor(5+(i*7),16);
