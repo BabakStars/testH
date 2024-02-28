@@ -16,7 +16,7 @@ int numbers[7];
 
 int stepWrite=0;
 
-unsigned int sspb=0;
+long sspb=0;
 
 String code,code1="",code2="",code3="",code4="";
 Adafruit_SSD1306 display(-1);
@@ -350,7 +350,7 @@ void screen433() {
   display.setTextSize(1);
   display.setTextColor(WHITE);
   display.setCursor(0,0);
-  display.println("Select the operation");
+  display.println("Operation");
   display.setCursor(10,8);
   display.println("Reading");
   display.setCursor(10,16);
